@@ -2,18 +2,6 @@ let randomInt = ()=>{
 	return Math.random().toString().slice(2,4)
 }
 
-let getNote = (number) =>{
-	if(number < 3){
-  return 'A'.concat(number)
-  }if(number >= 3 && number < 6){
-  return 'B'.concat(number-3)
-  }
-  if(number >= 6 && number < 10){
-  return 'C'.concat(number-6)
-  }
-}
-
-
 Vue.component('tile', {
 	props:['n'],
   template: '<div @click="onClicked">{{ n }}</div>',
@@ -31,7 +19,7 @@ Vue.component('tile', {
 
 Vue.component('status_bar', {
 	props:['Z','t'],
-  template: '<div> <span style="z-index:3">{{ Z }}</span> : <span>{{ t }}</span></div>',
+  template: '<div class="status_bar"> <span style="z-index:3">{{ Z }}</span> : <span>{{ t }}</span></div>',
   methods:{
   },
   data: function () {

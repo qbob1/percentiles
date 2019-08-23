@@ -34,6 +34,20 @@
 .guess{
   transition:all 1s;
   background-color:black;
-  max-width:5%;
+  width:4em;
 }
-
+.status_bar{
+  transition:all 1s;
+  width:100%;
+  position:absolute;
+  height:1em;
+  font-size:2em;
+}
+#status_container{
+  margin-top:3em;
+  height: 5em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
