@@ -1,18 +1,16 @@
 <script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-bundle.js"></script>
-<script src="https://unpkg.com/tone"></script>
-<script src="https://unpkg.com/@tonejs/ui"></script>
-
+<link rel="stylesheet" href="styles.css">
+<body>
 <div id="app">
 <div style="order:0">
 Attempts: {{ Tries }}
 </div>
 <div id="guesses">
-<status_bar Z="Target Value" v-bind:t="TargetValue" style="height:1em;width:100%;position:absolute;background-color:rgba(255, 0, 0, 0.3);"v-bind:style="{margin: TargetValue/10+'%'}">
+<status_bar Z="Target Value" v-bind:t="TargetValue" style="height:1em;width:50%;position:absolute;background-color:rgba(255, 0, 0, 0.3);"v-bind:style="{margin: TargetValue/10+'%'}">
 </status_bar>
-<status_bar Z="Current Mean" v-bind:t="current_score" style="transition:all 1s;height:1em;width:100%;position:absolute;background-color:rgba(0, 255, 0, 0.3);text-align:end;"v-bind:style="{margin: current_score/10+'%'}">
+<status_bar Z="Current Mean" v-bind:t="current_score" style="transition:all 1s;height:1em;width:50%;position:absolute;background-color:rgba(0, 255, 0, 0.3);text-align:end;"v-bind:style="{margin: current_score/10+'%'}">
 </status_bar>
-<status_bar Z="Difference" v-bind:t="Difference" style="transition:all 1s;height:1em;width:100%;position:absolute;background-color:rgba(255, 255, 153, .5);text-align:center;"v-bind:style="{margin: Difference/10+'%'}">
+<status_bar Z="Difference" v-bind:t="Difference" style="transition:all 1s;height:1em;width:50%;position:absolute;background-color:rgba(255, 255, 153, .5);text-align:center;"v-bind:style="{margin: Difference/10+'%'}">
 </status_bar>
  <guess v-for="g in guesses" class="guess"  v-bind:style="{opacity:g+'%'}" v-bind:g="g">
  &nbsp;
@@ -21,7 +19,6 @@ Attempts: {{ Tries }}
 <div id="tileContainer">
  <tile v-for="v in values" class="tile" v-bind:n="v"></tile>
 </div>
-<button @click="reset">
-
-</button>
 </div>
+</body>
+<script src="script.js"></script>

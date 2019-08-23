@@ -12,14 +12,13 @@ let getNote = (number) =>{
   return 'C'.concat(number-6)
   }
 }
-var synth = new Tone.Synth().toMaster()
+
 
 Vue.component('tile', {
 	props:['n'],
   template: '<div @click="onClicked">{{ n }}</div>',
   methods:{
   onClicked:function(){
-  synth.triggerAttackRelease(getNote(this.n[0]), '8n')
   scoreboard.update(this.n)
   }
   },
@@ -44,7 +43,7 @@ Vue.component('status_bar', {
 
 Vue.component('guess', {
 	props:['g'],
-  template: ' <transition name="fade"> <div>&nbsp;</div>  </transition>',
+  template: ' <div>&nbsp;</div> ',
   methods:{
 
   },
@@ -58,7 +57,7 @@ this.$vnode.elm.style.height=this.n+'%'
 }
 })
 
-var scoreboard = new Vue({
+var scoreboard= new Vue({
   el: '#app',
   data: {
 	Tries:0,
@@ -72,24 +71,6 @@ var scoreboard = new Vue({
   		this.guesses.push(s)
       this.Tries+=1
     },
-  reset:function(){
-  let guesses = this.guesses
-  let guess_index = 0
-  const synthPart = new Tone.Sequence(
-    function(time, note) {
-    	console.log(guesses[guess_index])
-      guesses[guess_index]=0
-      synth.triggerAttackRelease(note, "10hz", time);
-      guess_index++
-    },
-    this.notes,
-    "8n"
-  );
-  console.log(this.guesses)
-	synthPart.loop=1;
-  synthPart.start();
-  Tone.Transport.start()
-  }
     },
     computed: {
     current_score: function () {
@@ -106,7 +87,6 @@ var scoreboard = new Vue({
   return this.guesses.map(el=>getNote(el))
   }
   }
-  
   })
 
 
