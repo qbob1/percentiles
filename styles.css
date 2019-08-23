@@ -37,6 +37,7 @@
   width:4em;
 }
 .status_bar{
+  display:flex;
   transition:all 1s;
   width:100%;
   position:absolute;

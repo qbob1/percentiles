@@ -19,7 +19,7 @@ Vue.component('tile', {
 
 Vue.component('status_bar', {
 	props:['Z','t'],
-  template: '<div class="status_bar"> <span style="z-index:3">{{ Z }}</span> : <span>{{ t }}</span></div>',
+  template: '<div class="status_bar"> <span style="position:absolute;z-index:3">{{ Z }}:{{ t }}</span></div>',
   methods:{
   },
   data: function () {
